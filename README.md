@@ -26,6 +26,9 @@ Blog utilizando Framework Flask, MongoDB, Python e Materialize.
 
 # Rodando a aplicação
 
-1. python manage.py runserver
+1. python manage.py runserver na pasta do projeto
 
-2. Acesse depois -> http://localhost:5000
+2. Criar a pasta para o Mongo dentro do projeto (../blog/data/db/) e executar o server (mongod) indicando o --dbpath para esta pasta.
+Ex.: mongod.exe --dbpath C:\caminho onde está seu projeto\blog\data\db
+
+3. Acesse depois -> http://localhost:5000
