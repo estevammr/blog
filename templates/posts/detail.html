@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% import "_forms.html" as forms %}
+
+{% block page_header %}
+<div class="card-panel hoverable">
+  <h4>{{ post.title }}</h4>
+  
+  <h6>{{ post.body }}</h6>
+  
+  {% if post.body %}
+    {% if post.post_type == 'Quote' %}
+      <blockquote>{{ post.body }}</blockquote>
+      <p>{{ post.author }}</p>
+  {% else %}
+    <p>{{ post.body }}</p>
+    {% endif %}
+  {% endif %}
+  {% if post.embed_code %}
+    {{ post.embed_code|safe() }}
+  {% endif %}
+  {% if post.image_url %}
+    <div class="col s2">
+      <img class="circle responsive-img" src="{{ post.image_url }}" />
+    </div>
+  {% endif %}
+  <h6>Postado em {{ post.created_at.strftime('%H:%M %d-%m-%Y') }}</h6>
+  
+
+{% endblock %}
+
+{% block content %}
+  <hr>
+  <h4>Comentários</h4>
+  {% if post.comments %}
+    {% for comment in post.comments %}
+       <p class="flow-text">{{ comment.body }}</p>
+       <p>Autor do comentário: {{ comment.author }} em {{ comment.created_at.strftime('%H:%M %d-%m-%Y') }}</p>
+  <hr>
+      {{ comment.text }}
+    {% endfor %}
+  {% endif %}
+  <br>
+  <h6>Adicionar um comentário</h6>
+  <form action="." method="post">
+    {{ forms.render(form) }}
+    <div class="actions">
+      <input type="submit" class="waves-effect waves-light btn indigo" value="Comentar"></div>
+  </form>
+</div>
+{% endblock %}

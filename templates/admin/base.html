@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{%- block topbar -%}
+<nav>
+  <div class="nav-wrapper indigo">
+    <a href="{{ url_for('admin.index') }}" class="brand-logo">Administração do Blog</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#!" class="dropdown-button" data-toggle="dropdown"></a>
+        <ul class="dropdown-button">
+          {% for type in ('post', 'video', 'image', 'quote') %}
+            <li><a href="{{ url_for("admin.create", type=type) }}">{{ type|title }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+{%- endblock -%}
+{% block js_footer %}
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+{% endblock %}

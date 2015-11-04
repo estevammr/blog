@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog with Materialize</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>.content {padding-top: 80px;}</style>
+  </head>
+  <body>
+    {%- block topbar -%}
+    <div class="navbar-fixed indigo">
+      <nav>
+        <div class="nav-wrapper indigo">
+          <a href="#!" class="brand-logo indigo">Blog with Materialize</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="admin/">Admin</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    {%- endblock -%}
+        {% block page_header %}{% endblock %}
+        {% block content %}{% endblock %}
+    {% block js_footer %}{% endblock %}
+  </body>
+</html>
